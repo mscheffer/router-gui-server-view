@@ -9,7 +9,7 @@ var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 
 var routes = require('./routes/index')
-var users = require('./routes/users')
+var documents = require('./routes/documents')
 
 var app = express()
 
@@ -33,6 +33,8 @@ app.use(passport.session())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', routes)
+app.use('/', documents)
+app.use('/', favicon)
 
 // passport config
 var Account = require('./models/account')
